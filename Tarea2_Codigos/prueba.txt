@@ -1,0 +1,12 @@
+{COMA}      {printf("\nCOMA (%s)", yytext);}
+{RESTA}      {printf("\nRESTA (%s)", yytext);}
+{MULT}      {printf("\nMULT (%s)", yytext);}
+{DIV}      {printf("\nDIV (%s)", yytext);}
+{MAYOR_IGUAL}      {printf("\nMAYOR_IGUAL (%s)", yytext);}
+{MAYOR}      {printf("\nMAYOR (%s)", yytext);}
+{DESIGUAL}      {printf("\nDESIGUAL (%s)", yytext);}
+
+{NEGACION_P}      {printf("\nNEGACION_P (%s)", yytext);}
+
+{MODULO}      {printf("\nMODULO (%s)", yytext);}
+{DISYUNCION}      {printf("\nDISYUNCION (%s)", yytext);}
