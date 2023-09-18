@@ -6,10 +6,10 @@
 %}
 
 
-%option case-insensitive  //esta linea es para que no haya importancia si hay mayusculas o minusculas
+%option case-insensitive  
 
 P_RESERVADAS  (inicio|fin|mod|y|o|no|leer|escribir|si|entonces|si_no|fin_si|mientras|hacer|fin_mientras|repetir|hasta_que|para|desde|hasta|paso|fin_para)
-NUMERO [0,9]
+NUMERO [0-9]
 CHAR [a-zA-Z]
 ESPACIO [" "]
 COMENTARIO ["#"]
