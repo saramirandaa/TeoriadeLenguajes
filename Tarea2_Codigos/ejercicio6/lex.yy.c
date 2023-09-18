@@ -350,8 +350,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 33
-#define YY_END_OF_BUFFER 34
+#define YY_NUM_RULES 29
+#define YY_END_OF_BUFFER 30
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -361,21 +361,21 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[141] =
     {   0,
-        0,    0,   34,   33,   32,   31,   15,   28,    7,   16,
-        3,   22,    1,    2,   18,    4,   13,   24,    6,   14,
-       14,   14,   14,   14,   14,   14,   14,    7,    7,   14,
-       14,   14,   10,   17,   29,   30,   27,    0,   21,   23,
-        0,    0,   20,   25,   26,    5,   19,   19,   19,   19,
-       19,   19,   19,   19,   19,   19,   12,   19,   19,   12,
-        0,   20,   19,   19,   19,   12,   19,   19,   19,   19,
-       19,    8,   19,   19,   19,   19,    0,   20,   19,   19,
-       19,   19,   19,   19,   19,   12,   19,   12,   12,   19,
-       19,    0,   20,   12,   19,   19,   19,   19,   19,   12,
+        0,    0,   30,   29,   28,   27,   11,   24,   11,   12,
+        3,   18,    1,    2,   14,    4,    9,   20,    6,   10,
+       10,   10,   10,   10,   10,   10,   10,   10,    8,   10,
+       10,   10,    8,   13,   25,   26,   23,    0,   17,   19,
+        0,    0,   16,   21,   22,    5,   15,   15,   15,   15,
+       15,   15,   15,   15,   15,   15,    8,   15,   15,    8,
+        0,   16,   15,   15,   15,    8,   15,   15,   15,   15,
+       15,    7,   15,   15,   15,   15,    0,   16,   15,   15,
+       15,   15,   15,   15,   15,    8,   15,    8,    8,   15,
+       15,    0,   16,    8,   15,   15,   15,   15,   15,    8,
 
-       12,   19,   19,   19,   12,    0,   20,   19,   19,   19,
-       19,   12,   19,   12,   19,   19,    0,   20,   19,   19,
-       19,   19,   19,   19,   12,    0,   20,   12,   12,   19,
-       12,   19,   12,   20,   19,   12,   19,   19,   12,    0
+        8,   15,   15,   15,    8,    0,   16,   15,   15,   15,
+       15,    8,   15,    8,   15,   15,    0,   16,   15,   15,
+       15,   15,   15,   15,    8,    0,   16,    8,    8,   15,
+        8,   15,    8,   16,   15,    8,   15,   15,    8,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -857,110 +857,94 @@ YY_RULE_SETUP
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-{printf("\nNEGACION_P (%s)", yytext);}
+{printf("\nMODULO (%s)", yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-{printf("\nMODULO (%s)", yytext);}
+{printf("\nP_RESERVADAS (%s)", yytext);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-{printf("\nDISYUNCION (%s)", yytext);}
+{printf("\nNUMERO (%s)", yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-{printf("\nCONJUNCION (%s)", yytext);}
+{printf("\nCHAR (%s)", yytext);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-{printf("\nNEGACION_P (%s)", yytext);}
+{printf("\nESPACIO (%s)", yytext);}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-{printf("\nP_RESERVADAS (%s)", yytext);}
+{printf("\nCOMENTARIO (%s)", yytext);}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-{printf("\nNUMERO (%s)", yytext);}
+{printf("\nGUIONES (%s)", yytext);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-{printf("\nCHAR (%s)", yytext);}
+{printf("\nPUNTO (%s)", yytext);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-{printf("\nESPACIO (%s)", yytext);}
+{printf("\nIDENTIFICADOR (%s)", yytext);}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-{printf("\nCOMENTARIO (%s)", yytext);}
+{printf("\nCONST_DOUBLE (%s)", yytext);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-{printf("\nGUIONES (%s)", yytext);}
+{printf("\nCONST_CADENA (%s)", yytext);}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-{printf("\nPUNTO (%s)", yytext);}
+{printf("\nSUMA (%s)", yytext);}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-{printf("\nIDENTIFICADOR (%s)", yytext);}
+{printf("\nPOTENCIA (%s)", yytext);}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-{printf("\nCONST_DOUBLE (%s)", yytext);}
+{printf("\nMENOR (%s)", yytext);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-{printf("\nCONST_CADENA (%s)", yytext);}
+{printf("\nMENOR_IGUAL (%s)", yytext);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-{printf("\nSUMA (%s)", yytext);}
+{printf("\nDESIGUAL (%s)", yytext);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-{printf("\nPOTENCIA (%s)", yytext);}
+{printf("\nDISTINTO (%s)", yytext);}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-{printf("\nMENOR (%s)", yytext);}
+{printf("\nNEGACION (%s)", yytext);}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-{printf("\nMENOR_IGUAL (%s)", yytext);}
+{printf("\nLLAVE_AB (%s)", yytext);}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-{printf("\nDESIGUAL (%s)", yytext);}
+{printf("\nLLAVE_CE (%s)", yytext);}
 	YY_BREAK
 case 27:
+/* rule 27 can match eol */
 YY_RULE_SETUP
-{printf("\nDISTINTO (%s)", yytext);}
+
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-{printf("\nNEGACION (%s)", yytext);}
+
 	YY_BREAK
 case 29:
-YY_RULE_SETUP
-{printf("\nLLAVE_AB (%s)", yytext);}
-	YY_BREAK
-case 30:
-YY_RULE_SETUP
-{printf("\nLLAVE_CE (%s)", yytext);}
-	YY_BREAK
-case 31:
-/* rule 31 can match eol */
-YY_RULE_SETUP
-
-	YY_BREAK
-case 32:
-YY_RULE_SETUP
-
-	YY_BREAK
-case 33:
 YY_RULE_SETUP
 ECHO;
 	YY_BREAK
