@@ -14,7 +14,7 @@
 
 %%
 
-[[:alnum:]]+ {
+[[:alnum:]]+ { //regex que nos dice que cualquier char alfanumerico
     (n += (strcmp(yytext, palabra) == 0) ? 1 : 0);
     /*
         Condicional que nos permite comparar el input con la palabra, en caso de que si se le suma 1 
@@ -27,14 +27,17 @@
 int main(int argc, char *argv[]) {
     ++argv;  
     --argc;
+    //condicional para tener 2 argumentos como minimo para que el programa pueda funcionar
     if (argc < 2) 
     {  
         fprintf(stderr, "ERROR: Escriba la palabra a buscar y el archivo de texto\n\t Vuelva a correr el código\n");
         return 1;
     }
 
+    //la palabra a buscar será el primer argumento a recibir
     palabra = argv[0];  
 
+    //aquí se guarda en el input el archivo que será el argumento 2
     yyin = fopen(argv[1], "r");  
     if (!yyin) 
     { 
