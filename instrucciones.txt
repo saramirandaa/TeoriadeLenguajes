@@ -1,0 +1,9 @@
+Instrucciones para correr codigo
+
+1. Abrir la carpeta del código que se desee correr desede la terminal
+	ej. 
+		$ cd ejercicio4
+
+2. Escribir 
+
+	$ ./a.out palabra archivotexto.txt
