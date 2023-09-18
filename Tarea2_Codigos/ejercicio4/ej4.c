@@ -1,3 +1,6 @@
+#line 1 "ej4.c"
+
+#line 3 "ej4.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -435,6 +438,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
+#line 1 "ej4.lex"
+#line 2 "ej4.lex"
     //Librerias para el manejo del programa
     #include <stdio.h>
     #include <stdlib.h>
@@ -446,6 +451,8 @@ char *yytext;
     char *palabra = NULL;  
     // Contador para las repeticiones de la palabra solicitada
     int n = 0;        
+#line 454 "ej4.c"
+#line 455 "ej4.c"
 
 #define INITIAL 0
 
@@ -662,6 +669,10 @@ YY_DECL
 		}
 
 	{
+#line 15 "ej4.lex"
+
+
+#line 675 "ej4.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -720,6 +731,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
+#line 17 "ej4.lex"
 {
     (n += (strcmp(yytext, palabra) == 0) ? 1 : 0);
     /*
@@ -731,12 +743,15 @@ YY_RULE_SETUP
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
+#line 24 "ej4.lex"
 //regex que significa que cualquier caracter o salto de linea se irá tomando en cuenta para la busqueda de nuestra palabra
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
+#line 25 "ej4.lex"
 ECHO;
 	YY_BREAK
+#line 754 "ej4.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1740,6 +1755,9 @@ void yyfree (void * ptr )
 }
 
 #define YYTABLES_NAME "yytables"
+
+#line 25 "ej4.lex"
+
 
 int main(int argc, char *argv[]) {
     ++argv;  
