@@ -1,5 +1,0 @@
-E a E | b E | c S
-
-S e S | b B | c B
-
-B b E | c E | c | g | h
