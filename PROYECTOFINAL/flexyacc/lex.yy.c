@@ -350,8 +350,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 11
-#define YY_END_OF_BUFFER 12
+#define YY_NUM_RULES 1
+#define YY_END_OF_BUFFER 2
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -359,26 +359,25 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[16] =
+static const flex_int16_t yy_accept[6] =
     {   0,
-        0,    0,   12,   10,   11,    1,    3,    2,    4,    5,
-        6,    7,    8,    9,    0
+        0,    0,    2,    1,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    3,    1,    1,    1,    1,    1,
-        1,    4,    5,    1,    6,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    7,    8,    9,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
 
-       10,   11,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -397,36 +396,29 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[12] =
+static const YY_CHAR yy_meta[2] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1
     } ;
 
-static const flex_int16_t yy_base[16] =
+static const flex_int16_t yy_base[7] =
     {   0,
-        0,    0,   12,   13,   13,   13,   13,   13,   13,   13,
-       13,   13,   13,   13,   13
+        0,    0,    2,    3,    3,    0
     } ;
 
-static const flex_int16_t yy_def[16] =
+static const flex_int16_t yy_def[7] =
     {   0,
-       15,    1,   15,   15,   15,   15,   15,   15,   15,   15,
-       15,   15,   15,   15,    0
+        6,    6,    5,    5,    0,    5
     } ;
 
-static const flex_int16_t yy_nxt[25] =
+static const flex_int16_t yy_nxt[5] =
     {   0,
-        4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
-       14,   15,    3,   15,   15,   15,   15,   15,   15,   15,
-       15,   15,   15,   15
+        4,    5,    3,    5
     } ;
 
-static const flex_int16_t yy_chk[25] =
+static const flex_int16_t yy_chk[5] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    3,   15,   15,   15,   15,   15,   15,   15,   15,
-       15,   15,   15,   15
+        6,    3,    5,    5
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -668,6 +660,188 @@ YY_DECL
 
 	{
 
+	LETTER [a-zA-Z]
+	DIGIT [0-9]
+	ALPHANUMERICAL_CHAR ^[a-zA-Z0-9\$\&\/\+\-\*\%\=:\{\}>\<;\[\],\.\#]+$
+	INT_NUMBER [0-9]+
+	INT 
+	{
+		"integer"
+	}
+	REAL_TYPE
+	{
+		"real"
+	}
+	STRING_TYPE
+	{
+		"string"
+	}
+	BOOLEAN_TYPE
+	{
+		"boolean"
+	}
+	RELOP
+	{
+		"and" | "or"
+	}
+	ADDOP
+	{
+		"+" | "-"
+	}
+	MULOP
+	{
+		"*" | "/" | "div" | "mod"
+	}
+	EMPTY
+	{
+		" "
+	}
+	PARENTHESIS_OPEN
+	{
+		"("
+	}
+	PARENTHESIS_CLOSE
+	{
+		")"
+	}
+	DOT_COMMA
+	{
+		";"
+	}
+	DOT
+	{
+		"."
+	}
+	COMMA 
+	{
+		","
+	}
+	DOT_DOT
+	{
+		":"
+	}
+
+	EQUALS
+	{
+		"="
+	}
+
+	CONS
+	{
+		"cons"
+	}
+
+	VAR
+	{
+		"var"
+	}
+
+	ARRAY
+	{
+		"array"
+	}
+
+	BRACKET_OPEN
+	{
+		"["
+	}
+
+	BRACKET_CLOSE
+	{
+		"]"
+	}
+
+	OF
+	{
+		"of"
+	}
+
+	FUNCTION
+	{
+		"function"
+	}
+
+	TPROGRAM
+	{
+		"program"
+	}
+
+	BEGIN
+	{
+		"begin"
+	}
+
+	END
+	{
+		"end"
+	}
+
+	WHILE 
+	{
+		"while"
+	}
+
+	FOR
+	{
+		"for"
+	}
+
+	TO
+	{
+		"to"
+	}
+
+	DO
+	{
+		"do"
+	}
+
+	DOWNTO
+	{
+		"downto"
+	}
+
+	IF
+	{
+		"if"
+	}
+
+	THEN
+	{
+		"then"
+	}
+
+	ELSE
+	{
+		"else"
+	}
+
+	READLN
+	{
+		"readln"
+	}	
+
+	QUOTATIONS
+	{
+		"\""
+	}
+
+	E_MINUS
+	{
+		"e"
+	}
+
+	E_MAYUS
+	{
+		"E"
+	}
+
+	NO_CERO_DIGIT
+	{
+		[1-9]
+	}
+	.               {yyerror("Caracter desconocido");}     
+
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
 		yy_cp = (yy_c_buf_p);
@@ -693,13 +867,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 16 )
+				if ( yy_current_state >= 6 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 13 );
+		while ( yy_base[yy_current_state] != 3 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -724,73 +898,6 @@ do_action:	/* This label is used only to access EOF actions. */
 			goto yy_find_action;
 
 case 1:
-YY_RULE_SETUP
-{
-					yylval = yytext[0]; 
-					return GATO;
-		       }
-	YY_BREAK
-case 2:
-YY_RULE_SETUP
-{
-					yylval = yytext[0];
-					return TOKEN_PLUS;
-		       }
-	YY_BREAK
-case 3:
-YY_RULE_SETUP
-{
-					yylval = yytext[0];
-					return TOKEN_MULT;
-		       }
-	YY_BREAK
-case 4:
-YY_RULE_SETUP
-{
-					yylval = yytext[0];
-					return TOKEN_MINUS;
-		       }
-	YY_BREAK
-case 5:
-YY_RULE_SETUP
-{
-					yylval = yytext[0];
-					return TOKEN_b;
-		       }
-	YY_BREAK
-case 6:
-YY_RULE_SETUP
-{
-					yylval = yytext[0];
-					return TOKEN_c;
-		       	}
-	YY_BREAK
-case 7:
-YY_RULE_SETUP
-{
-					yylval = yytext[0];
-					return TOKEN_d;
-		       }
-	YY_BREAK
-case 8:
-YY_RULE_SETUP
-{
-					yylval = yytext[0];
-					return TOKEN_e;
-		       }
-	YY_BREAK
-case 9:
-YY_RULE_SETUP
-{
-					yylval = yytext[0];
-					return TOKEN_f;
-		       }
-	YY_BREAK
-case 10:
-YY_RULE_SETUP
-{yyerror("Caracter desconocido");}     
-	YY_BREAK
-case 11:
 YY_RULE_SETUP
 ECHO;
 	YY_BREAK
@@ -1090,7 +1197,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 16 )
+			if ( yy_current_state >= 6 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1118,11 +1225,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 16 )
+		if ( yy_current_state >= 6 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 15);
+	yy_is_jam = (yy_current_state == 5);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }

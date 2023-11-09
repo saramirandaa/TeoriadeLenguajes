@@ -12,55 +12,204 @@ extern int yyerror(char *s);
 
 %%
 
+	[a-zA-Z]
+	{
+		return LETTER;
+	}
 
-"#"	       		{
-					yylval = yytext[0]; 
-					return GATO;
-		       }
-		       
-"+"	       		{
-					yylval = yytext[0];
-					return TOKEN_PLUS;
-		       }
-		       
-"*"	       		{
-					yylval = yytext[0];
-					return TOKEN_MULT;
-		       }
-		       
-		       
-"-"	       		{
-					yylval = yytext[0];
-					return TOKEN_MINUS;
-		       }
+	[0-9]
+	{
+		return DIGIT;
+	}
 
-"b"	       		{
-					yylval = yytext[0];
-					return TOKEN_b;
-		       }
+	[a-zA-Z0-9\$\&\/\+\-\*\%\=:\{\}>\<;\[\],\.\#]
+	{
+		return ALPHANUMERICAL_CHAR;
+	}
+	
+	[0-9]
+	{
+		return INT_NUMBER
+	}
 
-"c"	       		{
-					yylval = yytext[0];
-					return TOKEN_c;
-		       	}
+	
+	INT 
+	{
+		"integer"
+	}
+	REAL_TYPE
+	{
+		"real"
+	}
+	STRING_TYPE
+	{
+		"string"
+	}
+	BOOLEAN_TYPE
+	{
+		"boolean"
+	}
+	RELOP
+	{
+		"and" | "or"
+	}
+	ADDOP
+	{
+		"+" | "-"
+	}
+	MULOP
+	{
+		"*" | "/" | "div" | "mod"
+	}
+	EMPTY
+	{
+		" "
+	}
+	PARENTHESIS_OPEN
+	{
+		"("
+	}
+	PARENTHESIS_CLOSE
+	{
+		")"
+	}
+	DOT_COMMA
+	{
+		";"
+	}
+	DOT
+	{
+		"."
+	}
+	COMMA 
+	{
+		","
+	}
+	DOT_DOT
+	{
+		":"
+	}
 
-"d"	       		{
-					yylval = yytext[0];
-					return TOKEN_d;
-		       }
+	EQUALS
+	{
+		"="
+	}
 
-"e"	       		{
-					yylval = yytext[0];
-					return TOKEN_e;
-		       }
+	CONS
+	{
+		"cons"
+	}
 
-"f"	       		{
-					yylval = yytext[0];
-					return TOKEN_f;
-		       }
+	VAR
+	{
+		"var"
+	}
 
+	ARRAY
+	{
+		"array"
+	}
 
-.               {yyerror("Caracter desconocido");}     
+	BRACKET_OPEN
+	{
+		"["
+	}
+
+	BRACKET_CLOSE
+	{
+		"]"
+	}
+
+	OF
+	{
+		"of"
+	}
+
+	FUNCTION
+	{
+		"function"
+	}
+
+	TPROGRAM
+	{
+		"program"
+	}
+
+	BEGIN
+	{
+		"begin"
+	}
+
+	END
+	{
+		"end"
+	}
+
+	WHILE 
+	{
+		"while"
+	}
+
+	FOR
+	{
+		"for"
+	}
+
+	TO
+	{
+		"to"
+	}
+
+	DO
+	{
+		"do"
+	}
+
+	DOWNTO
+	{
+		"downto"
+	}
+
+	IF
+	{
+		"if"
+	}
+
+	THEN
+	{
+		"then"
+	}
+
+	ELSE
+	{
+		"else"
+	}
+
+	READLN
+	{
+		"readln"
+	}	
+
+	QUOTATIONS
+	{
+		"\""
+	}
+
+	E_MINUS
+	{
+		"e"
+	}
+
+	E_MAYUS
+	{
+		"E"
+	}
+
+	NO_CERO_DIGIT
+	{
+		[1-9]
+	}
+	.               {yyerror("Caracter desconocido");}     
 
 %%
 
