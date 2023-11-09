@@ -93,8 +93,8 @@
      FUNCTION = 282,
      PROCEDURE = 283,
      TPROGRAM = 284,
-     BEGIN = 285,
-     END = 286,
+     TBEGIN = 285,
+     TEND = 286,
      WHILE = 287,
      FOR = 288,
      TO = 289,
@@ -149,8 +149,8 @@
 #define FUNCTION 282
 #define PROCEDURE 283
 #define TPROGRAM 284
-#define BEGIN 285
-#define END 286
+#define TBEGIN 285
+#define TEND 286
 #define WHILE 287
 #define FOR 288
 #define TO 289
@@ -573,7 +573,7 @@ static const char *const yytname[] =
   "EMPTY", "ALPHANUMERICAL_CHAR", "COMMA", "DOT", "DOT_COMMA",
   "PARENTHESIS_OPEN", "PARENTHESIS_CLOSE", "VAR", "CONST", "DOT_DOT",
   "EQUALS", "ARRAY", "BRAKET_OPEN", "BRAKET_CLOSE", "OF", "FUNCTION",
-  "PROCEDURE", "TPROGRAM", "BEGIN", "END", "WHILE", "FOR", "TO", "DO",
+  "PROCEDURE", "TPROGRAM", "TBEGIN", "TEND", "WHILE", "FOR", "TO", "DO",
   "AND", "NOT", "ASIGNATION_VARIABLE", "QUOTATIONS", "DOWNTO", "IF",
   "THEN", "ELSE", "READLN", "WRITE", "WRITELN", "READ", "SIGN",
   "NON_CERO_DIGIT", "BRACKET_OPEN", "BRACKET_CLOSE", "E_MINUS", "E_MAX",

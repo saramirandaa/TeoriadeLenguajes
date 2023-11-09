@@ -66,8 +66,8 @@
      FUNCTION = 282,
      PROCEDURE = 283,
      TPROGRAM = 284,
-     BEGIN = 285,
-     END = 286,
+     TBEGIN = 285,
+     TEND = 286,
      WHILE = 287,
      FOR = 288,
      TO = 289,
@@ -122,8 +122,8 @@
 #define FUNCTION 282
 #define PROCEDURE 283
 #define TPROGRAM 284
-#define BEGIN 285
-#define END 286
+#define TBEGIN 285
+#define TEND 286
 #define WHILE 287
 #define FOR 288
 #define TO 289
