@@ -179,18 +179,29 @@ int yyerror(char *s)
    return 0;
 }
 
-int main(int argc, char * argv[])
-{
-/* ++argv, --argc;
-	if ( argc > 0 )
-	{
-		yyin = fopen( argv[0], "r" );
-		if(!yyin)
-			yyin = stdin;		
-	}
-	else
-		yyin = stdin; */
-   yyparse();
-   printf("SUCCESS\n");
-   return 0;
+
+int main(int argc, char *argv[]) {
+
+    ++argv;  
+    --argc;
+    if (argc < 1) 
+    {  
+        fprintf(stderr, "ERROR: Escriba el archivo a evaluar\n\t Vuelva a correr el código\n");
+        return 1;
+    }
+
+    yyin = fopen(argv[0], "r");  
+    if (!yyin) 
+    { 
+        fprintf(stderr,"ERROR: No se encontró el archivo"); 
+        return 1;
+    }
+    yylex();  
+
+    fclose(yyin); 
+
+	printf("SUCCESS\n");
+    return 0;
 }
+
+

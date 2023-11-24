@@ -1,0 +1,22 @@
+Primer pregunta
+Flex y yacc 30 puntos
+Fuerza bruta 15 puntos
+Aplicación de como modificarla 
+
+
+1. Regular e independiente del contexto -10p
+
+3. Entrar en backtrack
+
+4. 10 puntos
+
+-
+Gramaticas de Atributos
+Slr01
+Automatas 
+
+--
+Lista de puertos -> 
+Cyber kill chain 
+Mitre Attack
+Chaos computer club

@@ -1,0 +1,20 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/saramiranda/Documents/5TO/PROYECTOFELIX/flexyaccsara/Tabla_de_simbolos'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: __Z13hash_functionPKc, symObjAddr: 0x0, symBinAddr: 0x100002798, symSize: 0x7C }
+  - { offsetInCU: 0x2D14, offset: 0x2D14, size: 0x8, addend: 0x0, symName: __Z13hash_functionPKc, symObjAddr: 0x0, symBinAddr: 0x100002798, symSize: 0x7C }
+  - { offsetInCU: 0x2D6A, offset: 0x2D6A, size: 0x8, addend: 0x0, symName: __Z21collision_list_insertR9HashTablejP7Ht_item, symObjAddr: 0x7C, symBinAddr: 0x100002814, symSize: 0x5C }
+  - { offsetInCU: 0x2DBC, offset: 0x2DBC, size: 0x8, addend: 0x0, symName: __Z11create_itemPKc, symObjAddr: 0xD8, symBinAddr: 0x100002870, symSize: 0x54 }
+  - { offsetInCU: 0x2DF6, offset: 0x2DF6, size: 0x8, addend: 0x0, symName: __Z12create_tableR9HashTable, symObjAddr: 0x12C, symBinAddr: 0x1000028C4, symSize: 0xCC }
+  - { offsetInCU: 0x2E56, offset: 0x2E56, size: 0x8, addend: 0x0, symName: __Z9free_itemP7Ht_item, symObjAddr: 0x1F8, symBinAddr: 0x100002990, symSize: 0x30 }
+  - { offsetInCU: 0x2E7E, offset: 0x2E7E, size: 0x8, addend: 0x0, symName: __Z10free_tableR9HashTable, symObjAddr: 0x228, symBinAddr: 0x1000029C0, symSize: 0x164 }
+  - { offsetInCU: 0x2EDE, offset: 0x2EDE, size: 0x8, addend: 0x0, symName: __Z9ht_insertR9HashTablePKc10data_value, symObjAddr: 0x38C, symBinAddr: 0x100002B24, symSize: 0xE8 }
+  - { offsetInCU: 0x2F3F, offset: 0x2F3F, size: 0x8, addend: 0x0, symName: __Z9ht_search9HashTablePKcRmRl, symObjAddr: 0x474, symBinAddr: 0x100002C0C, symSize: 0x17C }
+  - { offsetInCU: 0x2FF2, offset: 0x2FF2, size: 0x8, addend: 0x0, symName: __Z9ht_deleteR9HashTablePKc, symObjAddr: 0x5F0, symBinAddr: 0x100002D88, symSize: 0x884 }
+  - { offsetInCU: 0x3098, offset: 0x3098, size: 0x8, addend: 0x0, symName: __Z12print_searchR9HashTablePKc, symObjAddr: 0xE74, symBinAddr: 0x10000360C, symSize: 0xF8 }
+  - { offsetInCU: 0x30EA, offset: 0x30EA, size: 0x8, addend: 0x0, symName: __Z11print_table9HashTable, symObjAddr: 0xF6C, symBinAddr: 0x100003704, symSize: 0x148 }
+  - { offsetInCU: 0x314B, offset: 0x314B, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x10B4, symBinAddr: 0x10000384C, symSize: 0x330 }
+  - { offsetInCU: 0x326D, offset: 0x326D, size: 0x8, addend: 0x0, symName: __ZN9HashTableC1Ev, symObjAddr: 0x13E4, symBinAddr: 0x100003B7C, symSize: 0x2C }
+  - { offsetInCU: 0x3297, offset: 0x3297, size: 0x8, addend: 0x0, symName: __ZN9HashTableC2Ev, symObjAddr: 0x1410, symBinAddr: 0x100003BA8, symSize: 0xD0 }
+...

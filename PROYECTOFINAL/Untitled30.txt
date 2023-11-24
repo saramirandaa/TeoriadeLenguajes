@@ -1,0 +1,15 @@
+int main(int argc, char * argv[])
+{
+ ++argv, --argc;
+	if ( argc > 0 )
+	{
+		yyin = fopen( argv[0], "r" );
+		if(!yyin)
+			yyin = stdin;		
+	}
+	else
+		printf("Error: No file to compile\n");
+   yyparse();
+   printf("SUCCESS\n");
+   return 0;
+}
