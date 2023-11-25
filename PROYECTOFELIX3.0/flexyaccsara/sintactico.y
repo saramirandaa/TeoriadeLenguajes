@@ -32,38 +32,35 @@ Var_Types variable_type;
 programa 
     : {create_table(ht);}
     PROGRAM identificador LPAREN identificador_lista RPAREN SEMICOLON declaraciones subprograma_declaraciones
-        instruccion_compuesta DOT 
+        instruccion_compuesta DOT {
+        
+       
+        print_table(ht);
+        //ht_delete(ht, "X1");
+        //print_search(ht, "C1");
+        
+        
+    }
     ;
 
 identificador 
-    : IDENTIFICADOR_ {
-        printf("se leyó el identificador %s en la linea %d", $1, yylineno); 
+    : IDENTIFICADOR_ 
+    {
+        printf("Se leyó el identificador '%s' en la linea %d correctamente\n", $1, yylineno); 
+
         create_table(ht);
-        data_value data_1 = { $1, 0, BOOLEAN, 20, 1000, "12 , 13, 14", 1 };
-        ht_insert(ht, "X1", data_1);
-        data_value data_2 = { $1, 4,FLOAT,30,2000, "112 , 113, 114", 2 };
-        ht_insert(ht, "H1", data_2);
-        data_value data_3 = { $1, 10,INTEGER,40,3000, "212 , 213, 214", 3 };
-        ht_insert(ht, "Z1", data_3);
-        data_value data_4 = { $1, 15,STRING,80,5000, "312 , 313", 4};
-        ht_insert(ht, "P1", data_4);
-        data_value data_5 = { $1, 20,BOOLEAN,100,6000, "412 , 413, 414", 1 };
-        ht_insert(ht, "A1", data_5);
-        data_value data_6 = { $1, 24,FLOAT,130,7000, "512 , 513, 14", 2 };
-        ht_insert(ht, "B1", data_6);
-        data_value data_7 = { $1, 210,INTEGER,140,8000, "913, 914", 3 };
-        ht_insert(ht, "C1", data_7);
-        data_value data_8 = { $1, 215,STRING,180,9000, "712 , 713, 714", 4 };
-        ht_insert(ht, "K1", data_8);
-        print_table(ht);
-        ht_delete(ht, "X1");
-        print_table(ht);
-        ht_delete(ht, "B1");
-        print_table(ht);
-        print_search(ht, "C1");
-        print_search(ht, "K1");
-        free_table(ht);
-        print_table(ht);
+        data_value data;
+        data.identifier = $1;
+        data.memory_assign = 0;
+        data.type = INTEGER;
+        data.bytes_size = 0;
+        data.source_line_definition = 0;
+        data.scope = 0;
+
+        ht_insert(ht, $1 , data);
+        //data_value data_1 = { $1, 0, BOOLEAN, 20, 1000, "12 , 13, 14", 1 };
+        
+        //ids_array($1);
         free($1);
     }
 

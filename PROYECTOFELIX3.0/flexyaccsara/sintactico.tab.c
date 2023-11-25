@@ -591,20 +591,20 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    33,    33,    33,    39,    71,    72,    73,    74,    75,
-      76,    77,    78,    82,    83,    87,    88,    89,    90,    94,
-      95,    99,   100,   104,   105,   109,   110,   111,   112,   116,
-     117,   121,   122,   126,   127,   128,   129,   133,   134,   138,
-     142,   143,   147,   148,   152,   153,   157,   161,   162,   166,
-     167,   171,   172,   173,   174,   175,   176,   177,   181,   182,
-     183,   187,   188,   192,   193,   194,   195,   196,   197,   198,
-     199,   203,   207,   208,   212,   213,   214,   215,   216,   217,
-     218,   219,   220,   221,   222,   223,   224,   224,   224,   225,
-     225,   225,   229,   230,   234,   238,   239,   243,   244,   248,
-     248,   252,   253,   257,   258,   262,   263,   267,   268,   272,
-     276,   277,   281,   282,   286,   287,   291,   295,   296,   297,
-     298,   299,   300,   301,   305,   306,   307,   311,   314,   318,
-     319,   323,   324,   328,   329
+       0,    33,    33,    33,    47,    68,    69,    70,    71,    72,
+      73,    74,    75,    79,    80,    84,    85,    86,    87,    91,
+      92,    96,    97,   101,   102,   106,   107,   108,   109,   113,
+     114,   118,   119,   123,   124,   125,   126,   130,   131,   135,
+     139,   140,   144,   145,   149,   150,   154,   158,   159,   163,
+     164,   168,   169,   170,   171,   172,   173,   174,   178,   179,
+     180,   184,   185,   189,   190,   191,   192,   193,   194,   195,
+     196,   200,   204,   205,   209,   210,   211,   212,   213,   214,
+     215,   216,   217,   218,   219,   220,   221,   221,   221,   222,
+     222,   222,   226,   227,   231,   235,   236,   240,   241,   245,
+     245,   249,   250,   254,   255,   259,   260,   264,   265,   269,
+     273,   274,   278,   279,   283,   284,   288,   292,   293,   294,
+     295,   296,   297,   298,   302,   303,   304,   308,   311,   315,
+     316,   320,   321,   325,   326
 };
 #endif
 
@@ -1693,36 +1693,37 @@ yyreduce:
     {create_table(ht);;}
     break;
 
+  case 3:
+
+    {
+        
+       
+        print_table(ht);
+        //ht_delete(ht, "X1");
+        //print_search(ht, "C1");
+        
+        
+    ;}
+    break;
+
   case 4:
 
     {
-        printf("se leyó el identificador %s en la linea %d", (yyvsp[(1) - (1)].string_val), yylineno); 
+        printf("Se leyó el identificador '%s' en la linea %d correctamente\n", (yyvsp[(1) - (1)].string_val), yylineno); 
+
         create_table(ht);
-        data_value data_1 = { (yyvsp[(1) - (1)].string_val), 0, BOOLEAN, 20, 1000, "12 , 13, 14", 1 };
-        ht_insert(ht, "X1", data_1);
-        data_value data_2 = { (yyvsp[(1) - (1)].string_val), 4,FLOAT,30,2000, "112 , 113, 114", 2 };
-        ht_insert(ht, "H1", data_2);
-        data_value data_3 = { (yyvsp[(1) - (1)].string_val), 10,INTEGER,40,3000, "212 , 213, 214", 3 };
-        ht_insert(ht, "Z1", data_3);
-        data_value data_4 = { (yyvsp[(1) - (1)].string_val), 15,STRING,80,5000, "312 , 313", 4};
-        ht_insert(ht, "P1", data_4);
-        data_value data_5 = { (yyvsp[(1) - (1)].string_val), 20,BOOLEAN,100,6000, "412 , 413, 414", 1 };
-        ht_insert(ht, "A1", data_5);
-        data_value data_6 = { (yyvsp[(1) - (1)].string_val), 24,FLOAT,130,7000, "512 , 513, 14", 2 };
-        ht_insert(ht, "B1", data_6);
-        data_value data_7 = { (yyvsp[(1) - (1)].string_val), 210,INTEGER,140,8000, "913, 914", 3 };
-        ht_insert(ht, "C1", data_7);
-        data_value data_8 = { (yyvsp[(1) - (1)].string_val), 215,STRING,180,9000, "712 , 713, 714", 4 };
-        ht_insert(ht, "K1", data_8);
-        print_table(ht);
-        ht_delete(ht, "X1");
-        print_table(ht);
-        ht_delete(ht, "B1");
-        print_table(ht);
-        print_search(ht, "C1");
-        print_search(ht, "K1");
-        free_table(ht);
-        print_table(ht);
+        data_value data;
+        data.identifier = (yyvsp[(1) - (1)].string_val);
+        data.memory_assign = 0;
+        data.type = INTEGER;
+        data.bytes_size = 0;
+        data.source_line_definition = 0;
+        data.scope = 0;
+
+        ht_insert(ht, (yyvsp[(1) - (1)].string_val) , data);
+        //data_value data_1 = { $1, 0, BOOLEAN, 20, 1000, "12 , 13, 14", 1 };
+        
+        //ids_array($1);
         free((yyvsp[(1) - (1)].string_val));
     ;}
     break;

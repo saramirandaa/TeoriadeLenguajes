@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// funcion que me da el indice de la tabla de simbolos
+// sybol index
 unsigned long hash_function(const char* str)
 {
     unsigned long i = 0;
@@ -12,7 +12,8 @@ unsigned long hash_function(const char* str)
     return i % CAPACITY;
 }
 
-//inserta en la lista de colisiones
+// collision list = item (which is a pointer to a Ht_item)
+// fill the collision list as an array of Ht_item pointers
 void collision_list_insert(HashTable& table, unsigned int position_item, Ht_item * item)
 {
     // Inserts the item onto the LinkedList.
@@ -20,7 +21,7 @@ void collision_list_insert(HashTable& table, unsigned int position_item, Ht_item
     table.collision_list[position_item][position] = item;
 }
 
-//crea un item
+//creates an Ht_item object and makes strings of the chars i give the function as a parameter
 Ht_item* create_item(const char* value)
 {
     // Creates a pointer to a new HashTable item.
@@ -193,6 +194,27 @@ void ht_delete(HashTable & table, const char* key)
         
     }
 }
+char** ids_array(const char* word){
+    int times = 100;
+    if (word == NULL || times <= 0) {
+        return NULL;
+    }
+
+    int length = strlen(word);
+    char** arr = (char**)malloc(times * sizeof(char*)); 
+
+    if (arr != NULL) {
+        for (int i = 0; i < times; ++i) {
+            arr[i] = (char*)malloc((length + 1) * sizeof(char)); 
+            if (arr[i] != NULL) {
+                strcpy(arr[i], word); 
+            }
+            printf("size %d word %s\n", arr[i]);
+        }
+    }
+
+    return arr;
+}
 
 void print_search(HashTable & table, const char* key)
 {
@@ -216,7 +238,7 @@ void print_table(HashTable table)
     for (int i = 0; i < CAPACITY; i++)
         if (table.items[i])
         {
-            printf("Index:%d, Key:%s\n", i, table.items[i]->identifier_string);
+            printf(" Index:%d, Key:%s\n", i, table.items[i]->identifier_string);
             for (int it = 0; it < table.size_of_collision_list[i]; it++)
                 printf("Index:%d, Collision list position:%d, Key:%s\n", i, it, table.collision_list[i][it]->identifier_string);
         }

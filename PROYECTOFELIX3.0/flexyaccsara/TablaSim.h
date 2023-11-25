@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string>
+#include <string.h>
 
 #pragma warning(disable: 4996 6011 6387 6001)
 
@@ -45,6 +45,7 @@ struct HashTable
 {// Contains an array of pointers to items.
     Ht_item* items[CAPACITY] = { NULL };
     Ht_item* collision_list[CAPACITY][CAPACITY_COLLISION_LIST] = { NULL };
+    data_value collision_list_data[CAPACITY][CAPACITY_COLLISION_LIST] = { NULL };
     int size_of_collision_list[CAPACITY] = { -1 };
     unsigned int count = 0;
 };
@@ -60,6 +61,8 @@ bool ht_search(HashTable table, const char* key, unsigned long & index, long & c
 void ht_delete(HashTable & table, const char* key);
 void print_search(HashTable & table, const char* key);
 void print_table(HashTable table);
+char** ids_array(const char* word);
+
 
 #endif
 #endif 
