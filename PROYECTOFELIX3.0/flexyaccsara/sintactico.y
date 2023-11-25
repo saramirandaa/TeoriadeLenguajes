@@ -48,7 +48,6 @@ identificador
     {
         printf("Se leyó el identificador '%s' en la linea %d correctamente\n", $1, yylineno); 
 
-        create_table(ht);
         data_value data;
         data.identifier = $1;
         data.memory_assign = 0;
