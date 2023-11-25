@@ -12,11 +12,8 @@ unsigned long hash_function(const char* str)
     return i % CAPACITY;
 }
 
-// collision list = item (which is a pointer to a Ht_item)
-// fill the collision list as an array of Ht_item pointers
 void collision_list_insert(HashTable& table, unsigned int position_item, Ht_item * item)
 {
-    // Inserts the item onto the LinkedList.
     unsigned int position = table.size_of_collision_list[position_item]++;
     table.collision_list[position_item][position] = item;
 }
@@ -201,7 +198,8 @@ char** ids_array(const char* word){
     }
 
     int length = strlen(word);
-    char** arr = (char**)malloc(times * sizeof(char*)); 
+    char** arr = (char**)malloc(times * sizeof(char*)); // Explicitly cast malloc's return
+
 
     if (arr != NULL) {
         for (int i = 0; i < times; ++i) {
@@ -238,13 +236,19 @@ void print_table(HashTable table)
     for (int i = 0; i < CAPACITY; i++)
         if (table.items[i])
         {
-            printf(" Index:%d, Key:%s\n", i, table.items[i]->identifier_string);
-            for (int it = 0; it < table.size_of_collision_list[i]; it++)
-                printf("Index:%d, Collision list position:%d, Key:%s\n", i, it, table.collision_list[i][it]->identifier_string);
+            printf(" Index:%d, Key:%s, Memory Asign: %d, Type: %d, Size: %d, Source Line: %d, Lines Used: %s, \n", i, table.items[i]->identifier_string, table.items[i]->value.memory_assign
+                    , table.items[i]->value.type, table.items[i]->value.bytes_size, table.items[i]->value.source_line_definition, table.items[i]->value.source_lines_used);
+            //for (int it = 0; it < table.size_of_collision_list[i]; it++)
+                //printf("Index:%d, Collision list position:%d, Key:%s\n", i, it, table.collision_list[i][it]->identifier_string);
         }
     printf("-------------------\n\n");
 }
 
+int get_type(int type)
+{
+    
+
+}
 void prueba() {
     printf("hola");
 }

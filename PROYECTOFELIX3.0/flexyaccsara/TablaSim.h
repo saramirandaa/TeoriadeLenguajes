@@ -8,9 +8,9 @@
 
 #pragma warning(disable: 4996 6011 6387 6001)
 
-#define CAPACITY 3 // Size of the HashTable.
+#define CAPACITY 100 // Size of the HashTable.
 #define CAPACITY_COLLISION_LIST 10 // Collision list capacity
-#define MAX_LINES_REFERENCE 20 // Array's size of reference lines for identifier
+#define MAX_LINES_REFERENCE 10 // Array's size of reference lines for identifier
 
 
 #ifdef __cplusplus
@@ -20,11 +20,11 @@ extern "C" {
 void prueba();  
 #ifdef __cplusplus
 }
-enum Var_Types { BOOLEAN, INTEGER, FLOAT, STRING };
+enum Var_Types { BOOLEAN, INTEGER, FLOAT, STRING, REAL, CHAR, VOID };
 enum Var_concept { VAR_VARIABLE, VAR_ARRAY, VAR_FUNCTION, VAR_PROCEDURE };
 
 struct data_value
-{//Estructura de la tabla de simbolos
+{
     char* identifier;
     unsigned long memory_assign;
     Var_Types type;

@@ -203,10 +203,11 @@ extern int yylex(void);
 extern void yyerror(const char *s);
 extern FILE *yyin;
 extern int yylineno;
-int yydebug = 1;
+extern int yydebug;
+
 
 HashTable ht;
-data_value variable;
+data_value data;
 Var_Types variable_type;
 
 
@@ -591,7 +592,7 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,    33,    33,    33,    47,    67,    68,    69,    70,    71,
+       0,    34,    34,    34,    48,    67,    68,    69,    70,    71,
       72,    73,    74,    78,    79,    83,    84,    85,    86,    90,
       91,    95,    96,   100,   101,   105,   106,   107,   108,   112,
      113,   117,   118,   122,   123,   124,   125,   129,   130,   134,
@@ -1711,20 +1712,39 @@ yyreduce:
     {
         printf("Se leyó el identificador '%s' en la linea %d correctamente\n", (yyvsp[(1) - (1)].string_val), yylineno); 
 
-        data_value data;
         data.identifier = (yyvsp[(1) - (1)].string_val);
         data.memory_assign = 0;
-        data.type = INTEGER;
         data.bytes_size = 0;
         data.source_line_definition = 0;
+
+        memset(data.source_lines_used, yylineno, MAX_LINES_REFERENCE);
+        //strcpy(data.source_lines_used, yylineno);
         data.scope = 0;
 
         ht_insert(ht, (yyvsp[(1) - (1)].string_val) , data);
-        //data_value data_1 = { $1, 0, BOOLEAN, 20, 1000, "12 , 13, 14", 1 };
         
-        //ids_array($1);
         free((yyvsp[(1) - (1)].string_val));
     ;}
+    break;
+
+  case 33:
+
+    {printf("INTEGER_TYPE\n"); data.type = INTEGER;;}
+    break;
+
+  case 34:
+
+    {printf("REAL_TYPE\n"); data.type = REAL;;}
+    break;
+
+  case 35:
+
+    {printf("STRING_TYPE\n"); data.type = STRING;;}
+    break;
+
+  case 36:
+
+    {printf("BOOLEAN_TYPE\n"); data.type = BOOLEAN;;}
     break;
 
 

@@ -6,10 +6,11 @@ extern int yylex(void);
 extern void yyerror(const char *s);
 extern FILE *yyin;
 extern int yylineno;
-int yydebug = 1;
+extern int yydebug;
+
 
 HashTable ht;
-data_value variable;
+data_value data;
 Var_Types variable_type;
 %}
 
@@ -32,34 +33,24 @@ Var_Types variable_type;
 programa 
     : {create_table(ht);}
     PROGRAM identificador LPAREN identificador_lista RPAREN SEMICOLON declaraciones subprograma_declaraciones
-        instruccion_compuesta DOT {
-        
-       
-        print_table(ht);
-        //ht_delete(ht, "X1");
-        //print_search(ht, "C1");
-        
-        
-    }
+        instruccion_compuesta DOT { print_table(ht); }
     ;
 
 identificador 
     : IDENTIFICADOR_ 
-    {
-        printf("Se leyó el identificador '%s' en la linea %d correctamente\n", $1, yylineno); 
+    { 
 
-        data_value data;
         data.identifier = $1;
         data.memory_assign = 0;
-        data.type = INTEGER;
         data.bytes_size = 0;
         data.source_line_definition = 0;
+
+        memset(data.source_lines_used, yylineno, MAX_LINES_REFERENCE);
+        //strcpy(data.source_lines_used, yylineno);
         data.scope = 0;
 
         ht_insert(ht, $1 , data);
-        //data_value data_1 = { $1, 0, BOOLEAN, 20, 1000, "12 , 13, 14", 1 };
         
-        //ids_array($1);
         free($1);
     }
 
@@ -102,7 +93,8 @@ declaraciones_variables
     ;
 
 declaraciones_constantes 
-    : declaraciones_constantes CONST identificador EQUAL_OP constante_entera SEMICOLON
+    : declaraciones_constantes CONST identificador { //printf("Se leyó el identificador '%s' en la linea %d correctamente\n", $3, yylineno); } 
+        EQUAL_OP constante_entera SEMICOLON
     | declaraciones_constantes CONST identificador EQUAL_OP constante_real SEMICOLON
     | declaraciones_constantes CONST identificador EQUAL_OP constante_cadena SEMICOLON 
     |
@@ -119,10 +111,10 @@ tipo
     ;
 
 estandar_tipo 
-    : INTEGER_TYPE 
-    | REAL_TYPE 
-    | STRING_TYPE 
-    | BOOLEAN_TYPE
+    : INTEGER_TYPE {printf("INTEGER_TYPE\n"); }
+    | REAL_TYPE {printf("REAL_TYPE\n"); }
+    | STRING_TYPE {printf("STRING_TYPE\n"); }
+    | BOOLEAN_TYPE {printf("BOOLEAN_TYPE\n"); }
     ;
 
 subprograma_declaraciones 
