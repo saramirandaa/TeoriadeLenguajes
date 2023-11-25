@@ -236,7 +236,7 @@ void print_table(HashTable table)
     for (int i = 0; i < CAPACITY; i++)
         if (table.items[i])
         {
-            printf(" Index:%d, Key:%s, Memory Asign: %d, Type: %d, Size: %d, Source Line: %d, Lines Used: %s, \n", i, table.items[i]->identifier_string, table.items[i]->value.memory_assign
+            printf(" Index:%d, Key:%s, Memory Asign: %d, Type: %d, Size: %d, Source Line: %d, Lines Used: %s \n", i, table.items[i]->identifier_string, table.items[i]->value.memory_assign
                     , table.items[i]->value.type, table.items[i]->value.bytes_size, table.items[i]->value.source_line_definition, table.items[i]->value.source_lines_used);
             //for (int it = 0; it < table.size_of_collision_list[i]; it++)
                 //printf("Index:%d, Collision list position:%d, Key:%s\n", i, it, table.collision_list[i][it]->identifier_string);
@@ -244,11 +244,7 @@ void print_table(HashTable table)
     printf("-------------------\n\n");
 }
 
-int get_type(int type)
-{
-    
 
-}
 void prueba() {
     printf("hola");
 }

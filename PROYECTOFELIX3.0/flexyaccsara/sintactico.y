@@ -12,6 +12,7 @@ extern int yydebug;
 HashTable ht;
 data_value data;
 Var_Types variable_type;
+char* type_var;
 %}
 
 %token PROGRAM LPAREN RPAREN SEMICOLON DOT AND OR_OP EQUAL_OP NOT_EQUAL_OP 
@@ -37,9 +38,9 @@ programa
     ;
 
 identificador 
-    : IDENTIFICADOR_ 
+    : IDENTIFICADOR_  
     { 
-
+        
         data.identifier = $1;
         data.memory_assign = 0;
         data.bytes_size = 0;
@@ -48,11 +49,11 @@ identificador
         memset(data.source_lines_used, yylineno, MAX_LINES_REFERENCE);
         //strcpy(data.source_lines_used, yylineno);
         data.scope = 0;
-
         ht_insert(ht, $1 , data);
         
         free($1);
     }
+    ;
 
 relop 
     : AND 
@@ -111,10 +112,10 @@ tipo
     ;
 
 estandar_tipo 
-    : INTEGER_TYPE {printf("INTEGER_TYPE\n"); }
-    | REAL_TYPE {printf("REAL_TYPE\n"); }
-    | STRING_TYPE {printf("STRING_TYPE\n"); }
-    | BOOLEAN_TYPE {printf("BOOLEAN_TYPE\n"); }
+    : INTEGER_TYPE {type_var = "INTEGER_TYPE";}
+    | REAL_TYPE {type_var = "REAL_TYPE";}
+    | STRING_TYPE {type_var = "STRING_TYPE";}
+    | BOOLEAN_TYPE {type_var = "BOOLEAN_TYPE";}
     ;
 
 subprograma_declaraciones 
@@ -127,7 +128,7 @@ subprograma_declaracion
     ;
 
 subprograma_encabezado 
-    : FUNCTION identificador argumentos COLON estandar_tipo {printf("tipo %s",$5);}SEMICOLON
+    : FUNCTION identificador argumentos COLON estandar_tipo {printf("%s tipo %s\n", $2, type_var);} SEMICOLON
     | PROCEDURE identificador argumentos SEMICOLON
     ;
 
