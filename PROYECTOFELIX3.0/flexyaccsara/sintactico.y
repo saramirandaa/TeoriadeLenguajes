@@ -93,7 +93,7 @@ declaraciones_variables
     ;
 
 declaraciones_constantes 
-    : declaraciones_constantes CONST identificador { //printf("Se leyó el identificador '%s' en la linea %d correctamente\n", $3, yylineno); } 
+    : declaraciones_constantes CONST identificador 
         EQUAL_OP constante_entera SEMICOLON
     | declaraciones_constantes CONST identificador EQUAL_OP constante_real SEMICOLON
     | declaraciones_constantes CONST identificador EQUAL_OP constante_cadena SEMICOLON 
@@ -127,7 +127,7 @@ subprograma_declaracion
     ;
 
 subprograma_encabezado 
-    : FUNCTION identificador argumentos COLON estandar_tipo SEMICOLON
+    : FUNCTION identificador argumentos COLON estandar_tipo {printf("tipo %s",$5);}SEMICOLON
     | PROCEDURE identificador argumentos SEMICOLON
     ;
 
@@ -332,6 +332,7 @@ int main(int argc, char *argv[]) {
     yyin = fopen("Ejemplo1.pas", "r");
 
     // Parse the file
+    // { //printf("Se leyó el identificador '%s' en la linea %d correctamente\n", $3, yylineno); } 
     yyparse();
     printf("Parse successful!\n");
 
